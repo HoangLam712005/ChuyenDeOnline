@@ -2486,14 +2486,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f068d51ec523134e9a0558a859c8423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  fireballSpeed: 20
   _health: 100
   _mana: 100
   _score: 0
   weapon: {fileID: 1782372029711046483}
   fireballPrefab: {fileID: 7305303379084394076, guid: 0845aadf5c00f2c4a811bd0b6ced4fe4, type: 3}
-  firePoint: {fileID: 0}
-  fireRate: 0.5
-  _Fire: 0
+  firePoint: {fileID: 7850532649965846785}
+  fireRate: 0.2
+  _Fire: 1
   _Slash: 1
   sliderHealth: {fileID: 3283390563861027960}
   sliderMana: {fileID: 6939457939195863497}
@@ -2810,6 +2812,7 @@ Transform:
   - {fileID: 982562269442089769}
   - {fileID: 4315261968890339133}
   - {fileID: 1375730826607067304}
+  - {fileID: 4143684123420254275}
   m_Father: {fileID: 3681163156817864668}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7697243347232147217
@@ -3056,6 +3059,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e24aa4d1290bd840bfd796ce169c987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8239372347757616499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4143684123420254275}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4143684123420254275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239372347757616499}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.50000495, y: 0.49999875, z: -0.5000012, w: 0.4999952}
+  m_LocalPosition: {x: -0.011226601, y: 0.0852057, z: 0.026990594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5115445412223809019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8477942515239821660
 GameObject:
   m_ObjectHideFlags: 0
