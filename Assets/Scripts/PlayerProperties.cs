@@ -8,6 +8,10 @@ using System.Collections;
 
 public class PlayerProperties : NetworkBehaviour
 {
+    public NetworkObject Object => GetComponent<NetworkObject>();
+
+    public Camera mainCamera; // camera chính
+    public float fireballSpeed = 20f; // tốc độ fireball
     [Networked, OnChangedRender(nameof(OnInfoChanged))]
     public int health { get; set; } = 100;
     [Networked, OnChangedRender(nameof(OnInfoChanged))]
@@ -54,6 +58,12 @@ public class PlayerProperties : NetworkBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main; // tìm camera chính nếu chưa gán
+        }
     }
     public override void FixedUpdateNetwork()
     {
@@ -90,14 +100,34 @@ public class PlayerProperties : NetworkBehaviour
     [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
     private void RPC_Fireball()
     {
-        Transform lefthand = gameObject.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.LeftHand);
-        NetworkObject fireball = Runner.Spawn(fireballPrefab, lefthand.position, Quaternion.LookRotation(lefthand.up), Object.InputAuthority);
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        Vector3 targetPoint;
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(100f);
+        }
+
+        Vector3 direction = (targetPoint - firePoint.position).normalized;
+
+        NetworkObject fireball = Runner.Spawn(fireballPrefab, firePoint.position, Quaternion.LookRotation(direction), Object.InputAuthority);
+
+        // Gán owner
+        if (fireball.TryGetComponent<FireballBehaviour>(out var fb))
+        {
+            fb.SetOwner(Object.InputAuthority);
+            fb.speed = fireballSpeed; // gán speed nếu muốn
+        }
     }
 
 
     public void OnAnimationFireballEvent()
     {
-        if (Object.HasStateAuthority) // Chỉ host mới được gửi RPC
+        if (Object.HasStateAuthority) // Host gọi fireball
         {
             RPC_Fireball();
         }

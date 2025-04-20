@@ -8,6 +8,19 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
 
     public void PlayerJoined(PlayerRef player)
     {
+        // Gán nickname
+        string nickname;
+        if (player == Runner.LocalPlayer)
+        {
+            nickname = PlayerPrefs.GetString("nickname", $"Player {player.PlayerId}");
+        }
+        else
+        {
+            nickname = $"Player {player.PlayerId}";
+        }
+        PlayerNicknameManager.SetNickname(player, "TuanAnh"); // Gọi class xử lý lưu tên
+
+        // Spawn nhân vật
         if (player == Runner.LocalPlayer)
         {
             Vector3 spawnPosition = new Vector3(
