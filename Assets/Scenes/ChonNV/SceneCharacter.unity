@@ -596,7 +596,7 @@ Canvas:
   m_GameObject: {fileID: 367584459}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 449477010}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -847,8 +847,9 @@ GameObject:
   - component: {fileID: 449477010}
   - component: {fileID: 449477009}
   - component: {fileID: 449477012}
+  - component: {fileID: 449477013}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: vThirdPersonCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,7 +894,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.03
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -972,6 +973,38 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &449477013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449477008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1bfe72fbc87d04e885296b53e91c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  smoothCameraRotation: 12
+  cullingLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  lockCamera: 0
+  rightOffset: 0
+  defaultDistance: 2.5
+  height: 1.4
+  smoothFollow: 10
+  xMouseSensitivity: 3
+  yMouseSensitivity: 3
+  yMinLimit: -40
+  yMaxLimit: 80
+  indexList: 0
+  indexLookPoint: 0
+  offSetPlayerPivot: 0
+  currentStateName: 
+  currentTarget: {fileID: 0}
+  movementSpeed: {x: 0, y: 0}
 --- !u!1 &537527890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1394,7 @@ MonoBehaviour:
   confirmButton: {fileID: 384747873}
   characterPrefabs:
   - {fileID: 6942749591295158891, guid: 1d3d9e533d440c9439f57aa4614be0a6, type: 3}
+  - {fileID: 1853841405241795384, guid: 8c967dbe0b27de145aaa297e241e8b8d, type: 3}
   characterSpawnPoint: {fileID: 310369857}
 --- !u!1 &997031306
 GameObject:
@@ -1387,7 +1421,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997031306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 16789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1396,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.53406, y: -225.22302}
+  m_AnchoredPosition: {x: 125.533936, y: -225.22302}
   m_SizeDelta: {x: 35145.6, y: 20001.547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &997031308

@@ -36,7 +36,7 @@ public class UICharacterSelection : MonoBehaviour
         currentCharacterInstance = Instantiate(characterPrefabs[index], characterSpawnPoint.position, Quaternion.identity);
         currentCharacterInstance.transform.SetParent(characterSpawnPoint, true);
         currentCharacterInstance.AddComponent<RotateAvatar_M3>(); // Script cho xoay nhẹ
-        currentCharacterInstance.transform.localScale = Vector3.one * 120f;
+        currentCharacterInstance.transform.localScale = Vector3.one * 1f;
     }
 
     void NextCharacter()

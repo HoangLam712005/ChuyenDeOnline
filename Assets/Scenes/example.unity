@@ -1624,7 +1624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayCharacterPrefabs:
-  - {fileID: 6942749591295158891, guid: 0cf2f7b5906736f4fbd5b30ed6f8df84, type: 3}
+  - {fileID: 6942749591295158891, guid: 1d3d9e533d440c9439f57aa4614be0a6, type: 3}
+  - {fileID: 1853841405241795384, guid: 8c967dbe0b27de145aaa297e241e8b8d, type: 3}
   spawnPoint: {fileID: 817535289}
 --- !u!1 &832113374
 GameObject:
