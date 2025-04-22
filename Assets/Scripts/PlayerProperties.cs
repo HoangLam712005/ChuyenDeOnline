@@ -144,4 +144,16 @@ public class PlayerProperties : NetworkBehaviour
     }
 
 
+
+    public TMP_Text nameDisplay; // Gắn Text nằm trên đầu nhân vật
+
+    private string playerName;
+
+    public void SetPlayerName(string newName)
+    {
+        playerName = newName;
+        if (nameDisplay != null)
+            nameDisplay.text = newName;
+    }
+
 }
