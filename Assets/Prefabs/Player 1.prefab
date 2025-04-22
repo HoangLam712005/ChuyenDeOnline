@@ -553,12 +553,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782372029711046483}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.05470987, y: 0.24836844, z: 0.014051663, w: 0.9670174}
-  m_LocalPosition: {x: 0.2, y: 0.017, z: 0.8}
+  m_LocalRotation: {x: 0.64207864, y: 0.3796358, z: -0.33901566, w: -0.5733064}
+  m_LocalPosition: {x: -0.8444174, y: -0.54431885, z: 1.4117206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8212144485330914761}
+  m_Father: {fileID: 7964152830102678305}
   m_LocalEulerAnglesHint: {x: -6.476, y: 28.809, z: 0}
 --- !u!137 &6454188312623155261
 SkinnedMeshRenderer:
@@ -1432,6 +1432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2100078977863926931}
   - {fileID: 1597104587252975598}
   m_Father: {fileID: 5948801778735064665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2249,7 +2250,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7040674187394401779}
-  - {fileID: 2100078977863926931}
   - {fileID: 1900772181703111979}
   - {fileID: 5019321153681961627}
   - {fileID: 1812747790669714127}
@@ -2495,11 +2495,12 @@ MonoBehaviour:
   fireballPrefab: {fileID: 7305303379084394076, guid: 0845aadf5c00f2c4a811bd0b6ced4fe4, type: 3}
   firePoint: {fileID: 7850532649965846785}
   fireRate: 0.2
-  _Fire: 1
+  _Fire: 0
   _Slash: 1
   sliderHealth: {fileID: 3283390563861027960}
   sliderMana: {fileID: 6939457939195863497}
   scoreText: {fileID: 6769572912074742462}
+  nameDisplay: {fileID: 0}
 --- !u!114 &-8795907171138421318
 MonoBehaviour:
   m_ObjectHideFlags: 0
