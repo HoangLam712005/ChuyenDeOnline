@@ -36,7 +36,7 @@ public class UICharacterSelection : MonoBehaviour
         currentCharacterInstance = Instantiate(characterPrefabs[index], characterSpawnPoint.position, Quaternion.identity);
         currentCharacterInstance.transform.SetParent(characterSpawnPoint, true);
         currentCharacterInstance.AddComponent<RotateAvatar_M3>(); // Script cho xoay nhẹ
-        currentCharacterInstance.transform.localScale = Vector3.one * 100f;
+        currentCharacterInstance.transform.localScale = Vector3.one * 120f;
     }
 
     void NextCharacter()
@@ -60,6 +60,6 @@ public class UICharacterSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedCharacterIndex", currentIndex);
         PlayerPrefs.SetString("PlayerName", nameInput.text);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameplayScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("example");
     }
 }
