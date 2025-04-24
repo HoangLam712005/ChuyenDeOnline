@@ -60,6 +60,7 @@ public class UICharacterSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedCharacterIndex", currentIndex);
         PlayerPrefs.SetString("PlayerName", nameInput.text);
+        Debug.Log("CurrentIndex" +currentIndex);
         UnityEngine.SceneManagement.SceneManager.LoadScene("example");
     }
 }
