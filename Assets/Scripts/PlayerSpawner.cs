@@ -138,6 +138,27 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
     {
         if (player == Runner.LocalPlayer)
         {
+            if (gameplayCharacterPrefabs == null || gameplayCharacterPrefabs.Length == 0)
+            {
+                Debug.LogError("gameplayCharacterPrefabs is empty or null.");
+                return;
+            }
+
+            if (index < 0 || index >= gameplayCharacterPrefabs.Length)
+            {
+                Debug.LogError("Index out of range of gameplayCharacterPrefabs.");
+                return;
+            }
+
+            GameObject selectedPrefab = gameplayCharacterPrefabs[index];
+            Debug.Log("Spawning player prefab: " + selectedPrefab.name);
+
+
+
+
+
+
+
             Debug.Log("PlayerPrefab:" + playerPrefab);
 
             Vector3 randomOffset = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
