@@ -67,72 +67,116 @@
 //    }
 //}
 
+
+
+//void Start()
+//{
+//    Log các giá trị để kiểm tra
+//    Debug.Log($"Runner: {Runner}");
+//    Debug.Log($"gameplayCharacterPrefabs: {gameplayCharacterPrefabs}");
+//    Debug.Log($"Prefab at index {index}: {(index >= 0 && index < gameplayCharacterPrefabs.Length ? gameplayCharacterPrefabs[index] : "Invalid index")}");
+//    Debug.Log($"SpawnPoint: {spawnPoint}");
+//    Debug.Log($"SpawnPoint Position: {spawnPoint?.position}");
+
+//    Kiểm tra các tham số
+//    if (Runner == null || !Runner.IsRunning)
+//    {
+//        Debug.LogError("Runner is null or not running. Please assign a valid NetworkRunner.");
+//        return;
+//    }
+//    if (gameplayCharacterPrefabs == null || gameplayCharacterPrefabs.Length == 0)
+//    {
+//        Debug.LogError("GameplayCharacterPrefabs is null or empty. Please assign prefabs.");
+//        return;
+//    }
+//    if (index < 0 || index >= gameplayCharacterPrefabs.Length)
+//    {
+//        Debug.LogError($"Index {index} is out of bounds. Ensure it is within the range of gameplayCharacterPrefabs.");
+//        return;
+//    }
+//    if (spawnPoint == null)
+//    {
+//        Debug.LogError("SpawnPoint is null. Please assign a valid Transform.");
+//        return;
+//    }
+
+//    Kiểm tra xem prefab có phải là NetworkObject
+//    var prefab = gameplayCharacterPrefabs[index];
+//    if (prefab.GetComponent<NetworkObject>() == null)
+//    {
+//        Debug.LogError($"Prefab at index {index} is not a NetworkObject. Please assign a valid NetworkObject prefab.");
+//        return;
+//    }
+
+//    Spawn player
+//    try
+//    {
+//        NetworkObject player = Runner.Spawn(
+//           playerPrefab, // Thay thế bằng prefab nhân vật
+//                         gameplayCharacterPrefabs[index],
+//            spawnPoint.position,
+//            Quaternion.identity
+//        );
+//        Debug.Log("Player spawned successfully!");
+//    }
+//    catch (System.Exception ex)
+//    {
+//        Debug.LogError($"Failed to spawn player: {ex.Message}");
+//    }
+//}
+
+
+
+
 using UnityEngine;
 using Fusion;
 
 public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
 {
-    //public NetworkRunner Runner; // Đối tượng NetworkRunner
-    public GameObject[] gameplayCharacterPrefabs; // Mảng prefab nhân vật
-    public Transform spawnPoint; // Điểm spawn
-    public int index; // Chỉ số prefab cần spawn
-    public GameObject playerPrefab; // Prefab nhân vật
-
-    //void Start()
+    ////public NetworkRunner Runner; // Đối tượng NetworkRunner
+    //public GameObject[] gameplayCharacterPrefabs; // Mảng prefab nhân vật
+    //public Transform spawnPoint; // Điểm spawn
+    //public int index; // Chỉ số prefab cần spawn
+    //public GameObject playerPrefab; // Prefab nhân vật
+    //public void PlayerJoined(PlayerRef player)
     //{
-    //    // Log các giá trị để kiểm tra
-    //    //Debug.Log($"Runner: {Runner}");
-    //    Debug.Log($"gameplayCharacterPrefabs: {gameplayCharacterPrefabs}");
-    //    Debug.Log($"Prefab at index {index}: {(index >= 0 && index < gameplayCharacterPrefabs.Length ? gameplayCharacterPrefabs[index] : "Invalid index")}");
-    //    Debug.Log($"SpawnPoint: {spawnPoint}");
-    //    Debug.Log($"SpawnPoint Position: {spawnPoint?.position}");
+    //    if (player == Runner.LocalPlayer)
+    //    {
+    //        if (gameplayCharacterPrefabs == null || gameplayCharacterPrefabs.Length == 0)
+    //        {
+    //            Debug.LogError("gameplayCharacterPrefabs is empty or null.");
+    //            return;
+    //        }
 
-    //    // Kiểm tra các tham số
-    //    //if (Runner == null || !Runner.IsRunning)
-    //    //{
-    //    //    Debug.LogError("Runner is null or not running. Please assign a valid NetworkRunner.");
-    //    //    return;
-    //    //}
-    //    if (gameplayCharacterPrefabs == null || gameplayCharacterPrefabs.Length == 0)
-    //    {
-    //        Debug.LogError("GameplayCharacterPrefabs is null or empty. Please assign prefabs.");
-    //        return;
-    //    }
-    //    if (index < 0 || index >= gameplayCharacterPrefabs.Length)
-    //    {
-    //        Debug.LogError($"Index {index} is out of bounds. Ensure it is within the range of gameplayCharacterPrefabs.");
-    //        return;
-    //    }
-    //    if (spawnPoint == null)
-    //    {
-    //        Debug.LogError("SpawnPoint is null. Please assign a valid Transform.");
-    //        return;
-    //    }
+    //        if (index < 0 || index >= gameplayCharacterPrefabs.Length)
+    //        {
+    //            Debug.LogError("Index out of range of gameplayCharacterPrefabs.");
+    //            return;
+    //        }
 
-    //    // Kiểm tra xem prefab có phải là NetworkObject
-    //    var prefab = gameplayCharacterPrefabs[index];
-    //    if (prefab.GetComponent<NetworkObject>() == null)
-    //    {
-    //        Debug.LogError($"Prefab at index {index} is not a NetworkObject. Please assign a valid NetworkObject prefab.");
-    //        return;
-    //    }
+    //        GameObject selectedPrefab = gameplayCharacterPrefabs[index];
+    //        Debug.Log("Spawning player prefab: " + selectedPrefab.name);
+    //        Debug.Log("PlayerPrefab:" + playerPrefab);
 
-    //    // Spawn player
-    //    try
-    //    {
-    //        NetworkObject player = Runner.Spawn(
-    //           playerPrefab, // Thay thế bằng prefab nhân vật
-    //                         //gameplayCharacterPrefabs[index],
-    //            spawnPoint.position,
-    //            Quaternion.identity
-    //        );
-    //        Debug.Log("Player spawned successfully!");
-    //    }
-    //    catch (System.Exception ex)
-    //    {
-    //        Debug.LogError($"Failed to spawn player: {ex.Message}");
+    //        Vector3 randomOffset = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
+    //        Vector3 finalPosition = spawnPoint != null ? spawnPoint.position + randomOffset : randomOffset;
+
+    //        NetworkRunner.OnBeforeSpawned onBeforePlayerSpawned = (runner, obj) =>
+    //        {
+    //            var playerSetup = obj.GetComponent<PlayerSetup>();
+    //            if (playerSetup != null)
+    //            {
+    //                playerSetup.SetupCamera();
+    //            }
+    //        };
+    //        Runner.Spawn(gameplayCharacterPrefabs[index], finalPosition, Quaternion.identity, Runner.LocalPlayer, onBeforePlayerSpawned);
+
+
     //    }
     //}
+    public GameObject[] gameplayCharacterPrefabs;
+    public Transform spawnPoint;
+    public GameObject playerPrefab;
 
     public void PlayerJoined(PlayerRef player)
     {
@@ -144,38 +188,40 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
                 return;
             }
 
-            if (index < 0 || index >= gameplayCharacterPrefabs.Length)
+            // Đọc index prefab từ PlayerPrefs
+            int selectedIndex = PlayerPrefs.GetInt("SelectedCharacterIndex", 0);
+
+            if (selectedIndex < 0 || selectedIndex >= gameplayCharacterPrefabs.Length)
             {
-                Debug.LogError("Index out of range of gameplayCharacterPrefabs.");
+                Debug.LogError("Selected index out of range.");
                 return;
             }
 
-            GameObject selectedPrefab = gameplayCharacterPrefabs[index];
+            GameObject selectedPrefab = gameplayCharacterPrefabs[selectedIndex];
             Debug.Log("Spawning player prefab: " + selectedPrefab.name);
-
-
-
-
-
-
-
-            Debug.Log("PlayerPrefab:" + playerPrefab);
 
             Vector3 randomOffset = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5));
             Vector3 finalPosition = spawnPoint != null ? spawnPoint.position + randomOffset : randomOffset;
 
             NetworkRunner.OnBeforeSpawned onBeforePlayerSpawned = (runner, obj) =>
             {
-                var playerSetup = obj.GetComponent<PlayerSetup>();
-                if (playerSetup != null)
+                var setup = obj.GetComponent<PlayerSetup>();
+                if (setup != null)
+                    setup.SetupCamera();
+
+                // Gán tên người chơi nếu có
+                string playerName = PlayerPrefs.GetString("PlayerName", "Unknown");
+                if (obj.TryGetComponent<PlayerProperties>(out var props))
                 {
-                    playerSetup.SetupCamera();
+                    props.SetPlayerName(playerName);
                 }
             };
-            Runner.Spawn(gameplayCharacterPrefabs[index], finalPosition, Quaternion.identity, Runner.LocalPlayer, onBeforePlayerSpawned);
 
-
+            Runner.Spawn(selectedPrefab, finalPosition, Quaternion.identity, Runner.LocalPlayer, onBeforePlayerSpawned);
         }
     }
+
 }
+
+
 

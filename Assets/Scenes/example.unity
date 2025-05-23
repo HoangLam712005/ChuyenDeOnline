@@ -3542,6 +3542,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6942749591295158891, guid: 0cf2f7b5906736f4fbd5b30ed6f8df84, type: 3}
     - target: {fileID: 3838595753081805699, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
+      propertyPath: selectedPrefab
+      value: 
+      objectReference: {fileID: 1853841405241795384, guid: 8c967dbe0b27de145aaa297e241e8b8d, type: 3}
+    - target: {fileID: 3838595753081805699, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
+      propertyPath: selectedPrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838595753081805699, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
+      propertyPath: 'selectedPrefab.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6942749591295158891, guid: 0cf2f7b5906736f4fbd5b30ed6f8df84, type: 3}
+    - target: {fileID: 3838595753081805699, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
+      propertyPath: 'selectedPrefab.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1853841405241795384, guid: 8c967dbe0b27de145aaa297e241e8b8d, type: 3}
+    - target: {fileID: 3838595753081805699, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
       propertyPath: gameplayCharacterPrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -3574,17 +3590,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9030686573741158851, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
   m_PrefabInstance: {fileID: 6641291265062906069}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6641291265062906072 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3838595753081805699, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
-  m_PrefabInstance: {fileID: 6641291265062906069}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6641291265062906070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda07241b1a56fe458ee416fc3756d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6641291265062906073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279289338785844237, guid: 4aa0de56c1d07644c9a1f6d982b0064f, type: 3}
@@ -3604,10 +3609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 3017531004
   ObjectInterest: 1
-  Flags: 1
+  Flags: 262145
   NestedObjects: []
-  NetworkedBehaviours:
-  - {fileID: 6641291265062906072}
+  NetworkedBehaviours: []
   ForceRemoteRenderTimeframe: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
