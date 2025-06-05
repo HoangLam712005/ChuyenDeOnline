@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 8447343021391755900}
   - component: {fileID: 3281243151314789492}
   - component: {fileID: 1544047375433936182}
+  - component: {fileID: 5518379377868016441}
   m_Layer: 0
   m_Name: player3
   m_TagString: Player
@@ -673,10 +674,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 2560721067
   ObjectInterest: 1
-  Flags: 1
+  Flags: 262145
   NestedObjects: []
   NetworkedBehaviours: []
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &5518379377868016441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853841405241795384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a095799978ff59c489d08ee0fd0b7700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: e9688cbc1cf19b740a324ef8b56d9321, type: 2}
 --- !u!1 &1910405446622276600
 GameObject:
   m_ObjectHideFlags: 0
