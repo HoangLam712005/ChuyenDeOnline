@@ -209,7 +209,7 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
                 if (setup != null)
                     setup.SetupCamera();
 
-                // Gán tên người chơi nếu có
+                // Gán tên người chơi nếu có    
                 string playerName = PlayerPrefs.GetString("PlayerName", "Unknown");
                 if (obj.TryGetComponent<PlayerProperties>(out var props))
                 {
