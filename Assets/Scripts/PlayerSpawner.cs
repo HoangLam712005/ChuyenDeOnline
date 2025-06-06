@@ -10,7 +10,7 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
    
     public GameObject[] gameplayCharacterPrefabs;
     public Transform spawnPoint;
-    public GameObject playerPrefab;
+    //public GameObject playerPrefab;
 
     public void PlayerJoined(PlayerRef player)
     {

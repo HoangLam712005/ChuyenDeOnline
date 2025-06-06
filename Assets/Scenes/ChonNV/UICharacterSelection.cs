@@ -2,8 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Fusion;
 
-public class UICharacterSelection : MonoBehaviour
+public class UICharacterSelection : SimulationBehaviour
 {
     [Header("UI Elements")]
     public TMP_InputField nameInput;
@@ -74,23 +75,23 @@ public class UICharacterSelection : MonoBehaviour
         //previewName.text = value;
     }
 
-    void ConfirmCharacter()
-    {
-        PlayerPrefs.SetInt("SelectedCharacterIndex", currentIndex);
-        PlayerPrefs.SetString("PlayerName", nameInput.text);
-        Debug.Log("CurrentIndex" + currentIndex);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("example");
-    }
     //void ConfirmCharacter()
     //{
     //    PlayerPrefs.SetInt("SelectedCharacterIndex", currentIndex);
     //    PlayerPrefs.SetString("PlayerName", nameInput.text);
-
-    //    if (currentCharacterInstance != null)
-    //        Destroy(currentCharacterInstance);
-
+    //    Debug.Log("CurrentIndex" + currentIndex);
     //    UnityEngine.SceneManagement.SceneManager.LoadScene("example");
     //}
+    void ConfirmCharacter()
+    {
+        PlayerPrefs.SetInt("SelectedCharacterIndex", currentIndex);
+        PlayerPrefs.SetString("PlayerName", nameInput.text);
+
+        if (currentCharacterInstance != null)
+            Destroy(currentCharacterInstance);
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("example");
+    }
 
     void OnCharacterSelected(int index)
     {
